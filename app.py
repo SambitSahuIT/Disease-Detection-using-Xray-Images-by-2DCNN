@@ -36,7 +36,7 @@ print('Model loaded. Start serving...')
 #model = ResNet50(weights='imagenet')
 #model.save('')
 
-print('Model loaded. Check http://127.0.0.1:5000/')
+print('Model loaded. Check http://127.0.0.1:8000/')
 
 
 def model_predict(img_path, model):
@@ -78,4 +78,4 @@ def upload():
 if __name__ == '__main__':
     # Start the Flask app with Waitress
     from waitress import serve
-    serve(app, host='0.0.0.0', port=8000, channel_timeout=300)
+    serve(app, host='0.0.0.0', port=8000, threads=1, channel_timeout=300)
