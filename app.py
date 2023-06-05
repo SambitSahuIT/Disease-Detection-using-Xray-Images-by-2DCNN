@@ -72,28 +72,10 @@ def upload():
             prediction = 'Positive For Covid-19'
         else:
             prediction = 'Negative for Covid-19'
-        # Process your result for human
-        # pred_class = preds.argmax(axis=-1)            # Simple argmax
-        # pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
-        # result = str(pred_class[0][0][1)               # Convert to string
         return prediction
     return None
 
-
-#if __name__ == '__main__':
-#   app.run(debug=True)
-
-"""if __name__ == '__main__':
-    # Start the Flask app with Gunicorn
-    # Use the format 'module:app' to specify the Flask application object
-    gunicorn_cmd = 'gunicorn app:app -w 4'
-    os.system(gunicorn_cmd)
-if __name__ == '__main__':
-    from waitress import serve
-    # Start the Flask app with Waitress
-    serve(app, host='0.0.0.0', port=5000)"""
-
 if __name__ == '__main__':
     # Start the Flask app with Waitress
     from waitress import serve
-    serve(app, host='0.0.0.0', port=5000)
+    serve(app, host='0.0.0.0', port=8000,timeout=300)
